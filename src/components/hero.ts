@@ -1,5 +1,4 @@
 import { h } from '../utils/dom';
-import { attachParallax } from '../utils/motion';
 
 const heroImage = `${import.meta.env.BASE_URL}images/hero.png`;
 
@@ -56,6 +55,5 @@ export const renderHero = (): HTMLElement => {
     )
   );
 
-  requestAnimationFrame(() => attachParallax(visualStage, 0.08, 40));
   return hero;
 };

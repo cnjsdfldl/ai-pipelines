@@ -19,9 +19,7 @@
 
 .hero__inner {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: var(--space-8);
+  display: flex;
   align-items: center;
   min-height: clamp(440px, 56vh, 620px);
 }
@@ -86,34 +84,29 @@
   flex-wrap: wrap;
 }
 
+/* visual 占据 hero 整段右侧 —— 自顶到底铺满，图片在内部 flex 垂直居中 */
 .hero__visual {
   position: absolute;
-  top: 50%;
+  top: 0;
+  bottom: 0;
   right: 0;
-  /* 让插图突破容器，向右一直延伸到视口边缘 */
   width: clamp(560px, 64vw, 980px);
-  aspect-ratio: 1.42 / 1;
-  transform: translate3d(0, -50%, 0);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   pointer-events: none;
   z-index: 1;
-  /* 仅左侧柔化为透明，融入 hero 渐变背景；上下保持完整不被切 */
+  /* 左侧柔化为透明，融入 hero 渐变背景 */
   -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 16%, #000 42%);
   mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 16%, #000 42%);
-}
-
-/* 让插图能突出到容器右侧之外，紧贴视口右边 */
-.hero .container--wide.hero__inner {
-  /* 容器自身保持 max-width，但允许 visual 越界 */
-  overflow: visible;
 }
 
 .hero__visual-stage {
   position: relative;
   width: 100%;
   height: 100%;
-  will-change: transform;
-  /* 让 visual 自然向视口右侧溢出 —— 容器右侧 padding 之外多 6vw */
-  margin-right: calc(-1 * clamp(2rem, 6vw, 6rem));
+  /* 让插图突破容器右边缘 */
+  margin-right: calc(-1 * clamp(1rem, 4vw, 4rem));
 }
 
 .hero__visual-card {
@@ -129,7 +122,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center right;
+  object-position: center;
   display: block;
   filter: drop-shadow(0 30px 60px rgba(0, 113, 227, 0.12));
 }
