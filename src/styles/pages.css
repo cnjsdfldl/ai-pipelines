@@ -330,9 +330,9 @@
   padding-inline: clamp(var(--space-5), 4vw, var(--space-7));
 }
 
-/* Rich text 内段落保留易读宽度，但容器宽度跟随 nav */
+/* Rich text 与 .detail-body 同宽（即 --container-wide） */
 .detail-body .rt {
-  max-width: 880px;
+  max-width: none;
 }
 
 .detail-section {
