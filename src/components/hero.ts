@@ -16,6 +16,7 @@ export const renderHero = (): HTMLElement => {
   const hero = h(
     'section',
     { class: 'hero' },
+    h('div', { class: 'hero__visual fade-up' }, visualStage),
     h(
       'div',
       { class: 'container container--wide hero__inner' },
@@ -50,8 +51,7 @@ export const renderHero = (): HTMLElement => {
             h('span', { class: 'btn__arrow' }, '→')
           )
         )
-      ),
-      h('div', { class: 'hero__visual fade-up' }, visualStage)
+      )
     )
   );
 
