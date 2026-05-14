@@ -1,27 +1,18 @@
 import { h } from '../utils/dom';
 import { attachParallax } from '../utils/motion';
-import { renderCoverArt } from './cover-art';
+
+const heroImage = `${import.meta.env.BASE_URL}images/hero.png`;
 
 export const renderHero = (): HTMLElement => {
   const visualStage = h('div', { class: 'hero__visual-stage' });
-
-  const cardBack = h(
-    'div',
-    { class: 'hero__visual-card hero__visual-card--back' },
-    renderCoverArt({ variant: 'generic', accent: '#bf5af2' })
-  );
-  const cardMain = h(
-    'div',
-    { class: 'hero__visual-card hero__visual-card--main' },
-    renderCoverArt({ variant: 'ppt', accent: '#0071e3' })
-  );
-  const cardFront = h(
-    'div',
-    { class: 'hero__visual-card hero__visual-card--front' },
-    renderCoverArt({ variant: 'film', accent: '#ff375f' })
-  );
-
-  visualStage.append(cardBack, cardMain, cardFront);
+  const heroImg = h('img', {
+    src: heroImage,
+    alt: 'AI 工作流：智能助手与协作者构成的精选生态',
+    class: 'hero__visual-image',
+    loading: 'eager',
+    decoding: 'async',
+  });
+  visualStage.appendChild(heroImg);
 
   const hero = h(
     'section',

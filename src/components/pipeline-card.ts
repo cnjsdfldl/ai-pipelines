@@ -1,12 +1,24 @@
 import type { Pipeline } from '../data/pipelines/_types';
 import { h } from '../utils/dom';
-import { renderCoverArt } from './cover-art';
+import { renderCoverArt, type CoverVariant } from './cover-art';
 
-const variantFor = (id: string): 'ppt' | 'film' | 'generic' =>
-  id.includes('ppt') ? 'ppt' : id.includes('film') ? 'film' : 'generic';
+const variantFor = (id: string): CoverVariant => {
+  if (id.includes('ppt')) return 'ppt';
+  if (id.includes('film')) return 'film';
+  if (id.includes('coding')) return 'code';
+  if (id.includes('avatar')) return 'avatar';
+  if (id.includes('podcast')) return 'podcast';
+  return 'generic';
+};
 
-const accentFor = (id: string): string =>
-  id.includes('ppt') ? '#0071e3' : id.includes('film') ? '#ff375f' : '#bf5af2';
+const accentFor = (id: string): string => {
+  if (id.includes('ppt')) return '#0071e3';
+  if (id.includes('film')) return '#ff375f';
+  if (id.includes('coding')) return '#30d158';
+  if (id.includes('avatar')) return '#bf5af2';
+  if (id.includes('podcast')) return '#ff9f0a';
+  return '#0071e3';
+};
 
 export const renderPipelineCard = (p: Pipeline): HTMLElement => {
   return h(

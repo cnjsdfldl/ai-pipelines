@@ -1,10 +1,18 @@
 import type { OutputShowcase } from '../data/outputs';
 import { h } from '../utils/dom';
-import { renderCoverArt } from './cover-art';
+import { renderCoverArt, type CoverVariant } from './cover-art';
+
+const variantById = (id: string): CoverVariant => {
+  if (id === 'ppt') return 'ppt';
+  if (id === 'ai-film') return 'film';
+  if (id === 'coding') return 'code';
+  if (id === 'avatar') return 'avatar';
+  if (id === 'podcast') return 'podcast';
+  return 'generic';
+};
 
 export const renderOutputCard = (item: OutputShowcase): HTMLElement => {
-  const variant: 'ppt' | 'film' | 'generic' =
-    item.id === 'ppt' ? 'ppt' : item.id === 'ai-film' ? 'film' : 'generic';
+  const variant = variantById(item.id);
 
   return h(
     'a',
