@@ -318,9 +318,14 @@
 /* ----- Detail body ----- */
 .detail-body {
   padding-block: var(--space-8);
-  max-width: var(--container-narrow);
+  max-width: var(--container-wide);
   margin: 0 auto;
   padding-inline: clamp(var(--space-5), 4vw, var(--space-7));
+}
+
+/* Rich text 内段落保留易读宽度，但容器宽度跟随 nav */
+.detail-body .rt {
+  max-width: 880px;
 }
 
 .detail-section {
