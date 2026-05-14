@@ -96,15 +96,9 @@
   transform: translate3d(0, -50%, 0);
   pointer-events: none;
   z-index: 1;
-  /* 左侧 + 底部柔化为透明，融入 hero 渐变背景 */
-  -webkit-mask-image:
-    linear-gradient(to right, transparent 0%, rgba(0,0,0,0.35) 18%, #000 42%),
-    radial-gradient(ellipse 90% 95% at 65% 50%, #000 55%, transparent 100%);
-  mask-image:
-    linear-gradient(to right, transparent 0%, rgba(0,0,0,0.35) 18%, #000 42%),
-    radial-gradient(ellipse 90% 95% at 65% 50%, #000 55%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-composite: intersect;
+  /* 仅左侧柔化为透明，融入 hero 渐变背景；上下保持完整不被切 */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 16%, #000 42%);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 16%, #000 42%);
 }
 
 /* 让插图能突出到容器右侧之外，紧贴视口右边 */
