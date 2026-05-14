@@ -1,0 +1,98 @@
+:root {
+  /* ===== 色 ===== */
+  --color-bg:        #fbfbfd;
+  --color-bg-soft:   #f5f5f7;
+  --color-surface:   #ffffff;
+  --color-ink:       #1d1d1f;
+  --color-ink-soft:  #424245;
+  --color-muted:     #6e6e73;
+  --color-line:      rgba(0, 0, 0, 0.08);
+  --color-line-soft: rgba(0, 0, 0, 0.04);
+  --color-accent:    #0071e3;
+  --color-accent-2:  #ff375f;
+  --color-accent-3:  #bf5af2;
+  --color-success:   #30d158;
+  --color-warn:      #ff9f0a;
+
+  --gradient-aurora: linear-gradient(135deg, #0071e3 0%, #bf5af2 50%, #ff375f 100%);
+  --gradient-soft:   linear-gradient(180deg, rgba(0,113,227,0.06) 0%, rgba(255,55,95,0.04) 100%);
+  --gradient-hero:   radial-gradient(ellipse 80% 60% at 70% 10%, rgba(0,113,227,0.18), transparent 60%),
+                     radial-gradient(ellipse 60% 50% at 10% 90%, rgba(255,55,95,0.14), transparent 60%);
+
+  /* ===== 字 ===== */
+  --font-sans: 'SF Pro Display', -apple-system, BlinkMacSystemFont,
+               'Inter', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei',
+               system-ui, sans-serif;
+  --font-mono: 'SF Mono', 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+  --fs-display: clamp(2.75rem, 7vw, 5.5rem);
+  --fs-h1:      clamp(2rem, 4vw, 3.25rem);
+  --fs-h2:      clamp(1.5rem, 2.5vw, 2.125rem);
+  --fs-h3:      1.375rem;
+  --fs-body:    1.0625rem;
+  --fs-small:   0.875rem;
+  --fs-mini:    0.75rem;
+
+  --lh-tight:  1.1;
+  --lh-snug:   1.3;
+  --lh-normal: 1.55;
+  --lh-loose:  1.75;
+
+  --tracking-tight:  -0.022em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.04em;
+
+  /* ===== 间距 ===== */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px;
+  --space-4: 16px; --space-5: 24px; --space-6: 32px;
+  --space-7: 48px; --space-8: 64px; --space-9: 96px;
+  --space-10: 128px;
+
+  /* ===== 容器宽度 ===== */
+  --container-narrow: 720px;
+  --container-base:   1080px;
+  --container-wide:   1280px;
+
+  /* ===== 圆角与阴影 ===== */
+  --radius-sm: 8px; --radius-md: 14px; --radius-lg: 20px;
+  --radius-xl: 28px; --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.10), 0 8px 20px rgba(0, 0, 0, 0.05);
+  --shadow-glow: 0 20px 80px rgba(0, 113, 227, 0.18);
+
+  /* ===== 动效 ===== */
+  --ease-apple:  cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast:  180ms;
+  --dur-mid:   320ms;
+  --dur-slow:  600ms;
+  --dur-xslow: 1200ms;
+
+  /* ===== 层级 ===== */
+  --z-nav:    50;
+  --z-modal:  100;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg:        #000000;
+    --color-bg-soft:   #1c1c1e;
+    --color-surface:   #1d1d1f;
+    --color-ink:       #f5f5f7;
+    --color-ink-soft:  #d1d1d6;
+    --color-muted:     #a1a1a6;
+    --color-line:      rgba(255, 255, 255, 0.10);
+    --color-line-soft: rgba(255, 255, 255, 0.05);
+
+    --gradient-soft:   linear-gradient(180deg, rgba(0,113,227,0.12) 0%, rgba(255,55,95,0.08) 100%);
+    --gradient-hero:   radial-gradient(ellipse 80% 60% at 70% 10%, rgba(0,113,227,0.28), transparent 60%),
+                       radial-gradient(ellipse 60% 50% at 10% 90%, rgba(191,90,242,0.22), transparent 60%);
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.55);
+    --shadow-glow: 0 20px 80px rgba(0, 113, 227, 0.3);
+  }
+}
