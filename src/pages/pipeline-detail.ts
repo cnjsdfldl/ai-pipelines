@@ -56,6 +56,50 @@ const metaItem = (label: string, value: string): HTMLElement =>
     h('span', {}, value)
   );
 
+const renderStepItem = (
+  s: { title: string; description: string; image?: string; imageCaption?: string },
+  i: number
+): HTMLElement => {
+  const body = h(
+    'div',
+    { class: 'step-item__body' },
+    h('h3', { class: 'step-item__title' }, s.title),
+    h('p', { class: 'step-item__desc' }, s.description)
+  );
+
+  if (!s.image) {
+    return h(
+      'div',
+      { class: 'step-item' },
+      h('div', { class: 'step-item__num' }, String(i + 1).padStart(2, '0')),
+      body
+    );
+  }
+
+  const imgEl = h('img', {
+    src: s.image,
+    alt: s.imageCaption ?? s.title,
+    loading: 'lazy',
+    class: 'step-item__img',
+  });
+  const figure = h(
+    'figure',
+    { class: 'step-item__figure' },
+    imgEl,
+    s.imageCaption
+      ? h('figcaption', { class: 'step-item__caption' }, s.imageCaption)
+      : null
+  );
+
+  return h(
+    'div',
+    { class: 'step-item step-item--with-image' },
+    h('div', { class: 'step-item__num' }, String(i + 1).padStart(2, '0')),
+    body,
+    figure
+  );
+};
+
 const renderDetailBody = (p: Pipeline): HTMLElement => {
   const body = h('article', { class: 'detail-body' });
 
@@ -136,19 +180,7 @@ const renderDetailBody = (p: Pipeline): HTMLElement => {
       h(
         'div',
         { class: 'step-list' },
-        ...p.steps.map((s, i) =>
-          h(
-            'div',
-            { class: 'step-item' },
-            h('div', { class: 'step-item__num' }, String(i + 1).padStart(2, '0')),
-            h(
-              'div',
-              { class: 'step-item__body' },
-              h('h3', { class: 'step-item__title' }, s.title),
-              h('p', { class: 'step-item__desc' }, s.description)
-            )
-          )
-        )
+        ...p.steps.map((s, i) => renderStepItem(s, i))
       )
     )
   );

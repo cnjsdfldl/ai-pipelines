@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
-export default defineConfig({
-  base: './',
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? '/ai-pipelines/' : '/',
   build: {
     outDir: 'dist',
     target: 'es2022',
@@ -10,4 +10,4 @@ export default defineConfig({
     port: 5173,
     open: false,
   },
-});
+}));

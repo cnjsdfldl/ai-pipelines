@@ -21,6 +21,8 @@ export interface ModelRef {
 export interface StepItem {
   title: string;
   description: string;
+  image?: string;
+  imageCaption?: string;
 }
 
 export interface CaseItem {
