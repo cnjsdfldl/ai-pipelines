@@ -58,8 +58,7 @@ export const renderHero = (): HTMLElement => {
             { href: '#/pipelines', class: 'btn btn--primary' },
             '浏览所有流水线',
             h('span', { class: 'btn__arrow' }, '→')
-          ),
-          h('a', { href: '#home-outputs', class: 'btn btn--ghost' }, '查看 AI 能做什么')
+          )
         )
       ),
       h('div', { class: 'hero__visual fade-up' }, visualStage)
